@@ -1,8 +1,7 @@
 const mongoClient = require("mongodb").MongoClient;
 const settings = {
     mongoConfig: {
-        //serverUrl: "mongodb+srv://marisha:marisha@cluster0.m4iod.mongodb.net/boom?retryWrites=true&w=majority",
-           serverUrl: "mongodb://127.0.0.1:27017/",
+        serverUrl: "mongodb://127.0.0.1:27017/",
         database: "boom",
     },
 };
