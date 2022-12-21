@@ -1,0 +1,121 @@
+{{#if tutor}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/home.css" />
+    <body>
+
+        <!-- partial:index.partial.html -->
+        
+        <div class="split-pane col-xs-12 col-sm-6 uiux-side">
+            <div>
+                <div class="text-content">
+                    <div class="bold">You want</div>
+                    <div class="big">Create a meet?</div>
+                </div>
+                <a id="Meeting" href="/meeting">
+                    <button>Create a Meeting</button>
+                </a>
+            </div>
+        </div>
+        <!-- <a id="Meeting" href="/meeting"> -->
+        <div class="split-pane col-xs-12 col-sm-6 frontend-side" >
+            <div>
+                <div class="text-content">
+                    <div class="bold">You want</div>
+                    <div class="big">Join a Meet?</div>
+                </div>
+                 <button id="myBtn" style="cursor: pointer">Join Meeting</button>
+            </div>
+        </div>
+        <!-- </a> -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h1>Join Meet</h1>
+                </div>
+                <div class="modal-body">
+                    <form action="/join" method="post">
+                        <div class="input-wrapper">
+                            <label for="room">
+                                <input type="text" id="room" placeholder="Enter a Meet-ID" name="room" />
+                            </label>
+                            <i class="bx bxs-user-circle"></i>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="pass">
+                                <input type="password" name="pass" id="pass" placeholder="Enter a Meet Passcode" />
+                            </label>
+                            <i class="bx bx-key"></i>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Join
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="split-pane-line">
+            <img src="https://cdn6.f-cdn.com/contestentries/1683444/34515331/5de674acef4c4_thumb900.jpg" style="border-radius: 50%" alt="Image description"/>
+        </div>
+        <script src="/public/js/modal.js"></script>
+    </body>
+{{/if}}
+
+{{#if student}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/home.css" />
+    <body>
+
+        <!-- partial:index.partial.html -->
+
+        <!-- <a id="Meeting" href="/meeting"> -->
+        <div class="split-pane col-xs-12 col-sm-6 frontend-side" >
+            <div>
+                <div class="text-content">
+                    <div class="bold" style="background-color: #0075e2;">You want</div>
+                    <div class="big">Join a Meet?</div>
+                </div>
+            </div>
+        </div>
+        <!-- </a> -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Join Meet</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="/join" method="post">
+                        <div class="input-wrapper">
+                            <label for="room">
+                                <input type="text" id="room" placeholder="Enter a Meet-ID" name="room" />
+                            </label>
+                            <i class="bx bxs-user-circle"></i>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="pass">
+                                <input type="password" name="pass" id="pass" placeholder="Enter a Meet Passcode" />
+                            </label>
+                            <i class="bx bx-key"></i>
+                        </div>
+                        <div>
+                            <button type="submit">
+                                Join
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="split-pane-line">
+            <img src="https://cdn6.f-cdn.com/contestentries/1683444/34515331/5de674acef4c4_thumb900.jpg" style="border-radius: 50%" alt="Image description"/>
+        </div>
+        <script src="/public/js/modal.js"></script>
+    </body>
+{{/if}}

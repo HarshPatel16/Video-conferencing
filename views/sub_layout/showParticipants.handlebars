@@ -1,0 +1,27 @@
+{{#if usersList.length}}
+
+<h1>Participants</h1>
+
+
+
+
+<ul>
+
+    {{#each usersList}}
+
+    <p>{{this.username}}</p>
+
+    {{#if this.isPublic}}
+
+    <p>{{this.firstName}}</p>
+
+    {{/if}}
+
+    {{/each}}
+
+</ul>
+
+{{else}}
+<p class="usersList-not-found">No participant found</p>
+
+{{/if}}
