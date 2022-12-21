@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,800");
+html,
+body {
+    height: 100%;
+    min-height: 18em;
+}
+
+.frontend-side {
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-code.png"); */
+    background-color: #0075e2;
+}
+.frontend-side button:hover {
+    color: violet;
+}
+
+.uiux-side {
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png"); */
+    background-color: #161d29;
+}
+.uiux-side button:hover {
+    color: #005de3;
+}
+
+.split-pane {
+    padding-top: 1em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 50%;
+    min-height: 9em;
+    font-size: 2em;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+@media (min-width: 500px) {
+    .split-pane {
+        padding-top: 2em;
+        height: 100%;
+    }
+}
+.split-pane div {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+}
+.split-pane div button {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 0.5em;
+    padding: 0.8em;
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+@media (max-width: 500px) {
+    .split-pane div button {
+        font-size: 0.4em;
+    }
+}
+.split-pane div button:hover {
+    background: #fff;
+    text-decoration: none;
+}
+.split-pane div .text-content {
+    line-height: 1.6em;
+    margin-bottom: 1em;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.split-pane div .text-content .bold {
+    font-size: 0.6em;
+    text-transform: uppercase;
+}
+@media (max-width: 500px) {
+    .split-pane div .text-content .bold {
+        font-size: 0.4em;
+    }
+}
+.split-pane div .text-content .big {
+    font-size: 2em;
+    font-weight: 800;
+}
+@media (max-width: 500px) {
+    .split-pane div .text-content .big {
+        font-size: 1.5em;
+    }
+}
+
+.split-pane-line {
+    color: white;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+}
+.split-pane-line img {
+    height: 6em;
+}
+@media (max-width: 500px) {
+    .split-pane-line img {
+        height: 3em;
+    }
+}
+
+@media (min-width: 500px) {
+    .col-sm-6 {
+        width: 50%;
+    }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: auto; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #161d29;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgba(74, 79, 97, 0.25) 0px 13px 27px -5px, rgba(74, 79, 97, 0.3) 0px 8px 16px -8px;
+    padding: 20px 35px 35px 35px;
+    text-align: center;
+    width: 500px;
+}
+form i {
+    color: #fff;
+    font-size: 30px;
+    transition: color 250ms ease-in;
+}
+form .input-wrapper {
+    margin-bottom: 30px;
+    position: relative;
+}
+form .input-wrapper i {
+    color: #a4a9b6;
+    position: absolute;
+    opacity: 0.85;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+form h1 {
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 25px 0 0 0;
+}
+form p {
+    color: #a4a9b6;
+    font-size: 18px;
+    margin: 2px 0 44px 0;
+}
+form input[type="text"],
+form input[type="password"] {
+    border: 1px solid #d8ddf0;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 13px 9px 13px 9px;
+    transition: border-color 250ms ease-in;
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #4c70ff;
+    outline: none;
+}
+form input[type="text"]:focus + i,
+form input[type="password"]:focus + i {
+    color: #4c70ff;
+}
+form input {
+    width: 100%;
+}
+form ::-moz-placeholder {
+    color: #a4a9b6;
+    font-size: 15px;
+    opacity: 1;
+}
+form :-ms-input-placeholder {
+    color: #a4a9b6;
+    font-size: 15px;
+    opacity: 1;
+}
+form ::placeholder {
+    color: #a4a9b6;
+    font-size: 15px;
+    opacity: 1;
+}
+form button[type="submit"] {
+    background: #4c70ff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 18px 10px;
+    width: 100%;
+}
+form button[type="submit"] i {
+    margin-left: 5px;
+}

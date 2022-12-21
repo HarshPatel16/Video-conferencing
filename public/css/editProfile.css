@@ -1,0 +1,177 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  div.body {
+    width: 100%;
+    height: 100vh;
+    background-color: #f7f7f7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  header {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    width: 95%;
+    background-color: white;
+    border-radius: 15px;
+    margin: 20px 0;
+  }
+  
+  header .heading {
+    font-size: 1.8rem;
+    padding: 1rem;
+    color: #6b46c2;
+  }
+  
+  main {
+    width: 90%;
+    padding-bottom: 20px;
+  }
+  
+  main .container form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  main .container form label {
+    font-size: 1.05rem;
+  }
+  
+  main .container form input {
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px 15px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+  
+  main .container form #image {
+    display: none;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin: auto;
+  }
+  
+  main .container form #profile-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    border-radius: 50%;
+    border: 1px solid #d2d6e5;
+  }
+  
+  main .container form .edit-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    bottom: 20px;
+    padding: 9px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #441aad;
+    -webkit-transition: ease 0.2s;
+    transition: ease 0.2s;
+  }
+  
+  main .container form .edit-icon svg {
+    fill: white;
+  }
+  
+  main .container form .edit-icon:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  main .container form #profile-container img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin: auto;
+  }
+  
+  main .container form .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  main .container form .button-container button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 10px;
+    background-color: unset;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    width: 20%;
+    min-width: 100px;
+    cursor: pointer;
+    -webkit-transition: ease 0.2s;
+    transition: ease 0.2s;
+  }
+  
+  main .container form .button-container button:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  main .container form .button-container .cancel {
+    border: 1px solid #cacaca;
+    color: #6b46c2;
+  }
+  
+  main .container form .button-container .submit {
+    color: white;
+    background-color: #461bac;
+  }
+  /*# sourceMappingURL=styles.css.map */
