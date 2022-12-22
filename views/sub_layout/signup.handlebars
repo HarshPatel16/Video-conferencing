@@ -4,6 +4,9 @@
             <p class="text-mute" style="color: #767676 ;">START FOR FREE</p>
             <h1 class="heading-primary">Create new account<span class="custom-dot">.</span></h1>
             <p class="text-mute" style="color: #767676 ;">Already A Member? <a href="/login">Log in</a></p>
+            {{#if hasErrors}}
+                <p class="sg-error-message">{{error}}</p>
+            {{/if}}
             <form class="login-form" method="POST" id="login-form" action="signup">
                 <div class="f-row input-wrapper">
                     <label class="inp">
@@ -56,9 +59,6 @@
                 
                 <button class="btn btn-login" style="background-color: #007aca;">Create account</button>
             </form>
-            {{#if hasErrors}}
-                <p>{{error}}</p>
-            {{/if}}
         </main>
         <div class="welcome-container">
             <h1 class="heading-secondary">Welcome to <span class="lg">Boom Video Chat!</span></h1>
