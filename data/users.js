@@ -2,7 +2,7 @@ const { ObjectId } = require("mongodb");
 const mongoCollections = require("../config/mongoCollections");
 const userCollection = mongoCollections.user;
 const bcrypt = require("bcryptjs");
-const saltRound = 16;
+const saltRound = 14;
 module.exports = {
     async createUser(username, password, email, fName, lName, userType, phonenumber, dob) {
         try {
