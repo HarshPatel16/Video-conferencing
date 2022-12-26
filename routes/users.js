@@ -7,6 +7,8 @@ const usersData = require("../data/users");
 const meetData = require("../data/meeting");
 const { v4: uuidv4 } = require("uuid");
 const xss = require("xss");
+const { Session } = require("inspector");
+const session = require("express-session");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/uploads");
@@ -69,9 +71,11 @@ router.get("/meeting", async (req, res) => {
 });
 
 router.get("/logout", async (req, res) => {
-    user_logout = req.session.user.Username.toLowerCase();
-    req.session.destroy();
-    res.redirect("/login");
+    if(req.session.user){
+        user_logout = req.session.user.Username.toLowerCase();
+        req.session.destroy();
+    }
+    return res.redirect("/");
 });
 router.post("/join", async (req, res) => {
     if (!req.session.user) {
@@ -181,11 +185,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/signup", async (req, res) => {
-    if (req.session.user) {
-        return res.redirect("/home");
-    } else {
-        res.render("sub_layout/signup", { title: "Signup", hasErrors: false });
-    }
+     res.render("sub_layout/signup", { title: "Signup", hasErrors: false });
 });
 
 router.post("/signup", async (req, res) => {

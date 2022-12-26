@@ -20,21 +20,6 @@
     </head>
 
     <body>
-
-        <div id="circularMenu1" class="circular-menu">
-
-            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
-                {{! <i class="fa fa-bars"></i> }}
-            </a>
-
-            <menu class="items-wrapper">
-                <a href="/home" class="menu-item fa fa-home"></a>
-                <a href="/profile" class="menu-item fa fa-user"></a>
-                <a href="/logout" class="menu-item fa fa-sign-out"></a>
-            </menu>
-
-        </div>
-
         {{{body}}}
         <script id="userS" userName={{username}}></script>
         <script id="room" data-roomid={{roomId}} src="/public/js/script.js"></script>

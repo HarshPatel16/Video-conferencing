@@ -1,5 +1,21 @@
 <link rel="stylesheet" href="/public/css/editProfile.css" />
 <h1>Edit Profile</h1>
+
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
+
+
 <form action="/editprofile" method="POST" class="editprofile-form" id="editprofile-form" enctype="multipart/form-data">
     <div class="form-group">
             <label for="image"></label>

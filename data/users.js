@@ -58,7 +58,7 @@ module.exports = {
             const usercol = await userCollection();
             const chckForUser = await usercol.findOne({ username: username });
 
-            const updatedInfo = await usercol.updateOne({ _id: ObjectId(chckForUser._id) }, { $addToSet: { meetings: new Date().toUTCString() } });
+            const updatedInfo = await usercol.updateOne({ _id: ObjectId(chckForUser._id) }, { $addToSet: { meetings: new Date().toLocaleString() } });
 
             const upUserr = await this.getUser(username);
 

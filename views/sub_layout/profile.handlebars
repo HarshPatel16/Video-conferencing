@@ -12,6 +12,20 @@
 
 <p>Date Of Birth(YYYY-MM-DD): {{dob}}</p>
 
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
+
 {{#if meetingList.length}}
     <p>Meeting history:</p>
     <ul>
@@ -21,14 +35,14 @@
     </ul>
 
 {{else}}
-    <p class="meeting-not-found">No meeting found</p>
+    <p style="color: red">No meeting found</p>
 
 {{/if}}
 {{#if profilePic}}
     <img style="border-radius: 50%; width:150px;"src="{{{profilePic}}}" alt="Image description">
     <button url="{{profilePic}}">download</button>
 {{else}}
-    <p class="meeting-not-found">No Profile Pic found</p>
+    <p style="color: red">No Profile Pic found</p>
 {{/if}}
 <br>   
 <a id="Edit Profile" href="/editprofile">Edit Profile</a>

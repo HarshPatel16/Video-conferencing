@@ -4,7 +4,20 @@
     <body>
 
         <!-- partial:index.partial.html -->
-        
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
+
         <div class="split-pane col-xs-12 col-sm-6 uiux-side">
             <div>
                 <div class="text-content">

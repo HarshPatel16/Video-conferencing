@@ -246,6 +246,10 @@ a {
     flex-direction: column;
     gap: 2rem;
 }
+.sg-error-message{
+    color: rgb(255, 0, 0);
+}
+
 .login-container {
     width: 100vw;
     padding: 10rem 10rem;

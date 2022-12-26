@@ -41,13 +41,13 @@ app.use(
 app.use(async (req, res, next) => {
   if (req.session.user) {
     console.log(
-      `${new Date().toUTCString()} ${req.method} ${
+      `${new Date().toLocaleString()} ${req.method} ${
         req.originalUrl
       } (Authenticated User)`
     );
   } else {
     console.log(
-      `${new Date().toUTCString()} ${req.method} ${
+      `${new Date().toLocaleString()} ${req.method} ${
         req.originalUrl
       } (Non-Authenticated User)`
     );
@@ -95,7 +95,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 443, () => {
+server.listen(process.env.PORT || 8088, () => {
   console.log("We've now got a server!");
-  console.log("Your routes will be running on http://localhost:443");
+  console.log("Your routes will be running on http://localhost:8088");
 });
