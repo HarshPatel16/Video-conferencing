@@ -25,6 +25,10 @@ router.get("/", async (req, res) => {
     res.render("sub_layout/intro");
 });
 
+router.get("/signup", async (req, res) => {
+    res.render("sub_layout/signup", { title: "Signup", hasErrors: false });
+});
+
 router.get("/login", async (req, res) => {
     if (req.session.user) {
         return res.redirect("/home");
@@ -50,6 +54,93 @@ router.get("/home", async (req, res) => {
         }
     }
 });
+
+router.get("/logout", async (req, res) => {
+    if(req.session.user){
+        user_logout = req.session.user.Username.toLowerCase();
+        req.session.destroy();
+    }
+    return res.redirect("/");
+});
+
+router.post("/signup", async (req, res) => {
+    try {
+        let username = xss(req.body.username);
+        let passwordSign = xss(req.body.password);
+        let email = xss(req.body.email);
+        let fName = xss(req.body.fName);
+        let lName = xss(req.body.lName);
+        let userType = xss(req.body.Type);
+        let phonenumber = xss(req.body.phonenumber);
+        let dob = xss(req.body.dob);
+
+        checkCreateUser(username, passwordSign);
+        const adduser = await usersData.createUser(username, passwordSign, email, fName, lName, userType, phonenumber, dob);
+        if (adduser.userInserted) {
+            req.session.user = {
+                Username: username,
+                UserType: userType,
+            };
+            res.redirect("/home");return
+        } else {
+            res.status(400).render("sub_layout/signup"),
+                {
+                    hasErrors: true,
+                    error: "Error Occured",
+                    title: "Signup",
+                };
+        }
+        return;
+    } catch (e) {
+        res.status(e[0]).render("sub_layout/signup", {
+            hasErrors: true,
+            error: e[1],
+            title: "Signup",
+        });
+        return;
+    }
+});
+
+router.post("/login", async (req, res) => {
+    try {
+        let username = xss(req.body.username);
+        let password = xss(req.body.password);
+        checkCreateUser(username, password);
+        const userCheck = await usersData.checkUser(username, password);
+
+        if (userCheck.authenticated) {
+            req.session.user = {
+                Username: username,
+                UserType: xss(userCheck.userType),
+            };
+            res.redirect("/home");
+            return;
+        } else {
+            res.status(400).render("sub_layout/login", {
+                hasErrors: true,
+                title: "Login",
+                error: "Either the username or password is invalid",
+            });
+            return;
+        }
+    } catch (e) {
+        if (Array.isArray(e)) {
+            res.status(e[0]).render("sub_layout/login", {
+                hasErrors: true,
+                error: `${e[1]}`,
+                title: "Login",
+            });
+        } else {
+            res.status(500).render("sub_layout/login", {
+                hasErrors: true,
+                error: "Internal Server Error",
+                title: "Login",
+            });
+            return;
+        }
+    }
+});
+
 router.get("/meeting", async (req, res) => {
     if (!req.session.user) {
         return res.redirect("/login");
@@ -70,13 +161,7 @@ router.get("/meeting", async (req, res) => {
     }
 });
 
-router.get("/logout", async (req, res) => {
-    if(req.session.user){
-        user_logout = req.session.user.Username.toLowerCase();
-        req.session.destroy();
-    }
-    return res.redirect("/");
-});
+
 router.post("/join", async (req, res) => {
     if (!req.session.user) {
         return res.redirect("/");
@@ -141,84 +226,6 @@ router.get("/meeting/:room/:pass", async (req, res) => {
                 error: "unable to join a meet",
             });
         }
-    }
-});
-
-router.post("/login", async (req, res) => {
-    try {
-        let username = xss(req.body.username);
-        let password = xss(req.body.password);
-        checkCreateUser(username, password);
-        const userCheck = await usersData.checkUser(username, password);
-
-        if (userCheck.authenticated) {
-            req.session.user = {
-                Username: username,
-                UserType: xss(userCheck.userType),
-            };
-            res.redirect("/home");
-            return;
-        } else {
-            res.status(400).render("sub_layout/login", {
-                hasErrors: true,
-                title: "Login",
-                error: "Either the username or password is invalid",
-            });
-            return;
-        }
-    } catch (e) {
-        if (Array.isArray(e)) {
-            res.status(e[0]).render("sub_layout/login", {
-                hasErrors: true,
-                error: `${e[1]}`,
-                title: "Login",
-            });
-        } else {
-            res.status(500).render("sub_layout/login", {
-                hasErrors: true,
-                error: "Internal Server Error",
-                title: "Login",
-            });
-            return;
-        }
-    }
-});
-
-router.get("/signup", async (req, res) => {
-     res.render("sub_layout/signup", { title: "Signup", hasErrors: false });
-});
-
-router.post("/signup", async (req, res) => {
-    try {
-        let usernameSign = xss(req.body.username);
-        let passwordSign = xss(req.body.password);
-        let email = xss(req.body.email);
-        let fName = xss(req.body.fName);
-        let lName = xss(req.body.lName);
-        let userType = xss(req.body.Type);
-        let phonenumber = xss(req.body.phonenumber);
-        let dob = xss(req.body.dob);
-
-        checkCreateUser(usernameSign, passwordSign);
-        const adduser = await usersData.createUser(usernameSign, passwordSign, email, fName, lName, userType, phonenumber, dob);
-        if (adduser.userInserted) {
-            return res.redirect("/home");
-        } else {
-            res.status(400).render("sub_layout/signup"),
-                {
-                    hasErrors: true,
-                    error: "Error Occured",
-                    title: "Signup",
-                };
-        }
-        return;
-    } catch (e) {
-        res.status(e[0]).render("sub_layout/signup", {
-            hasErrors: true,
-            error: e[1],
-            title: "Signup",
-        });
-        return;
     }
 });
 
@@ -289,35 +296,6 @@ router.post("/editprofile", upload.single("profilePic"), async (req, res) => {
     } catch (e) {
         console.log("err route:", e);
         res.status(e[0]).render("sub_layout/editprofile", {
-            hasErrors: true,
-            error: e[1],
-        });
-        return;
-    }
-});
-
-router.post("/signup", async (req, res) => {
-    try {
-        let usernameSign = xss(req.body.username);
-        let passwordSign = xss(req.body.password);
-        let email = xss(req.body.email);
-        let fName = xss(req.body.fName);
-        let lName = xss(req.body.lName);
-        checkCreateUser(usernameSign, passwordSign);
-        const adduser = await usersData.createUser(usernameSign, passwordSign, email, fName, lName);
-        if (adduser.userInserted) {
-            return res.redirect("/home");
-        } else {
-            res.status(400).render("sub_layout/signup"),
-                {
-                    hasErrors: true,
-                    error: "Error Occured",
-                    title: "Signup",
-                };
-        }
-        return;
-    } catch (e) {
-        res.status(e[0]).render("sub_layout/signup", {
             hasErrors: true,
             error: e[1],
         });
