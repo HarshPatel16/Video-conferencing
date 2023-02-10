@@ -1,0 +1,48 @@
+<h1>Profile</h1>
+
+<p>Username: {{username}}</p>
+
+<p>Email: {{email}}</p>
+
+<p>FirstName: {{firstName}}</p>
+
+<p>LastName: {{lastName}}</p>
+
+<p>Phone Number: {{phonenumber}}</p>
+
+<p>Date Of Birth(YYYY-MM-DD): {{dob}}</p>
+
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
+
+{{#if meetingList.length}}
+    <p>Meeting history:</p>
+    <ul>
+        {{#each meetingList}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+
+{{else}}
+    <p style="color: red">No meeting found</p>
+
+{{/if}}
+{{#if profilePic}}
+    <img style="border-radius: 50%; width:150px;"src="{{{profilePic}}}" alt="Image description">
+    <button url="{{profilePic}}">download</button>
+{{else}}
+    <p style="color: red">No Profile Pic found</p>
+{{/if}}
+<br>   
+<a id="Edit Profile" href="/editprofile">Edit Profile</a>

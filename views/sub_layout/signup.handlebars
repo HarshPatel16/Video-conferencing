@@ -1,0 +1,71 @@
+<body>
+    <div class="container">
+        <main class="login-container">
+            <p class="text-mute" style="color: #767676 ;">START FOR FREE</p>
+            <h1 class="heading-primary">Create new account<span class="custom-dot">.</span></h1>
+            <p class="text-mute" style="color: #767676 ;">Already A Member? <a href="/login">Log in</a></p>
+            {{#if hasErrors}}
+                <p class="sg-error-message">{{error}}</p>
+            {{/if}}
+            <form class="login-form" method="post" id="login-form" action="signup">
+                <div class="f-row input-wrapper">
+                    <label class="inp">
+                        <input type="text" class="input-text" placeholder="&nbsp;" name="fName" id="fName" required />
+                        <span class="label" style="color: #767676 ;">First name</span>
+                        <span class="input-icon"><i class="fa-solid fa-address-card"></i></span>
+                    </label>
+                    <label class="inp">
+                        <input type="text" class="input-text" placeholder="&nbsp;" name="lName" id="lName" required />
+                        <span class="label" style="color: #767676 ;">Last name</span>
+                        <span class="input-icon"><i class="fa-solid fa-address-card"></i></span>
+                    </label>
+                </div>
+                <label class="inp">
+                    <input type="email" class="input-text" placeholder="&nbsp;" id="email" name="email" required />
+                    <span class="label" style="color: #767676 ;">Email</span>
+                    <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+                </label>
+                <label class="inp">
+                    <input type="text" class="input-text" placeholder="&nbsp;" name="username" id="username" required />
+                    <span class="label" style="color: #767676 ;">Username</span>
+                    <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+                </label>
+                <label class="inp">
+                    <input type="password" class="input-text" placeholder="&nbsp;" name="password" id="password" required />
+                    <span class="label" style="color: #767676 ;">Password</span>
+                    <span class="input-icon input-icon-password" data-password><i class="fa-solid fa-eye"></i></span>
+                </label>
+                <label class="inp">
+                <input type="tel" class="input-text" placeholder="&nbsp;" name="phonenumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+                <span class="label" style="color: #767676 ;">Phone</span>
+                <span class="input-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                </label>
+                
+                <label class="inp">
+                <input type="date" class="input-text" placeholder="&nbsp;&nbsp;" name="dob" pattern="[0-12]{2}/[1-31]{2}/[0-9]{4}" required>
+                <span class="label" style="color: #767676 ;">Date of Birth</span>
+                <span class="input-icon"></span>
+                </label>
+                
+                <section>
+                    <div class="dropdown">
+                        <select name="Type" class="dropdown-select">
+                            <option value="">Select Role</option>
+                            <option value="Student">Student</option>
+                            <option value="Tutor">Tutor</option>
+                        </select>
+                    </div>
+                </section>
+                
+                <button class="btn btn-login" style="background-color: #007aca;">Create account</button>
+            </form>
+        </main>
+        <div class="welcome-container">
+            <h1 class="heading-secondary">Welcome to <span class="lg">Video Conferencing App!</span></h1>
+        </div>
+    </div>
+    <script>
+        const eyeClick = document.querySelector("[data-password]"); const password_elem = document.getElementById("password"); eyeClick.onclick = () => { const icon = eyeClick.children[0];
+        icon.classList.toggle("fa-eye-slash"); if (password_elem.type === "password") { password_elem.type = "text"; } else if (password_elem.type === "text") { password_elem.type = "password"; } };
+    </script>
+</body>

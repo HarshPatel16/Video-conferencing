@@ -1,0 +1,163 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    color: #646673;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  
+  main .container {
+    margin: 5rem 1rem;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    main .container {
+      grid-column-gap: 5%;
+      -ms-grid-columns: 35% 60%;
+          grid-template-columns: 35% 60%;
+    }
+  }
+  
+  @media screen and (min-width: 48rem) {
+    main .container {
+      grid-column-gap: 5%;
+      -ms-grid-columns: 50% 45%;
+          grid-template-columns: 50% 45%;
+    }
+  }
+  
+  @media screen and (min-width: 48rem) {
+    main .container {
+      display: -ms-grid;
+      display: grid;
+      grid-column-gap: 5%;
+      -ms-grid-columns: 40% 55%;
+          grid-template-columns: 40% 55%;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+  }
+  
+  @media screen and (min-width: 0) and (max-width: 767px) {
+    main .container {
+      padding: 0 4vw;
+    }
+  }
+  
+  main .container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  main .container .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1.5rem;
+    width: 80%;
+    height: 70%;
+  }
+  
+  main .container .text .heading {
+    color: #333848;
+    font-size: clamp(2rem, 16vw, 4rem);
+    font-family: 'Libre Caslon Text', serif;
+  }
+  
+  main .container .text .description {
+    line-height: 1.333;
+  }
+  
+  main .container .text .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
+  }
+  
+  main .container .text .button-container button {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    color: white;
+    background-color: #3e46ac;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 19px 40px 20px;
+    display: block;
+    -webkit-transition: color 420ms cubic-bezier(0.165, 0.84, 0.44, 1), background 420ms cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-box-shadow 420ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: color 420ms cubic-bezier(0.165, 0.84, 0.44, 1), background 420ms cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-box-shadow 420ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: box-shadow 420ms cubic-bezier(0.165, 0.84, 0.44, 1), color 420ms cubic-bezier(0.165, 0.84, 0.44, 1), background 420ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: box-shadow 420ms cubic-bezier(0.165, 0.84, 0.44, 1), color 420ms cubic-bezier(0.165, 0.84, 0.44, 1), background 420ms cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-box-shadow 420ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  @media screen and (min-width: 48rem) {
+    main .container .text .button-container button {
+      display: inline-block;
+      white-space: nowrap;
+      -ms-flex-preferred-size: auto;
+          flex-basis: auto;
+    }
+  }
+  
+  @media screen and (min-width: 64rem) {
+    main .container .text .button-container button {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media screen and (min-width: 25rem) {
+    main .container .text .button-container button {
+      font-size: calc(0.875rem + (0 * (100vw - 400px) / 624));
+    }
+  }
+  
+  main .container .text .button-container button:hover {
+    background-color: #333190;
+    border-color: #333190;
+  }
+  
+  main .container .text .button-container .sub-text {
+    font-size: 0.9rem;
+  }
+  
+  main .container .text .button-container .sub-text .cta {
+    color: #3e46ac;
+    border-bottom: 1px solid;
+    cursor: pointer;
+  }
+  /*# sourceMappingURL=styles.css.map */

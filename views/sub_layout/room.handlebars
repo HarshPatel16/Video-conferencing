@@ -1,0 +1,74 @@
+<div class="header">
+    <div class="logo">
+        <div class="header__back">
+            <i class="fas fa-angle-left"></i>
+        </div>
+        <h1>Boom Video Conference</h1>
+    </div>
+</div>
+<div class="main">
+    <div class="main__left">
+        <div class="videos__group">
+            <div id="video-grid">
+
+            </div>
+        </div>
+        <div class="options">
+            <div class="options__left">
+                <div id="stopVideo" class="options__button" title="Stop/play video">
+                    <i class="fa fa-video-camera"></i>
+                </div>
+                <div id="muteButton" class="options__button" title="Microphone">
+                    <i class="fa fa-microphone"></i>
+                </div>
+                <div id="showParticipants" class="options__button" title="Show Participants">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div id="recordVideo" class="options__button" title="Record video">
+                    <i class="fas fa-circle"></i>
+                </div>
+                <div id="stopVideorecord" class="end__button" style="display: none;" title="Stop video Recording">
+                    <i class="fas fa-stop"></i>
+                </div>
+                <div id="showChat" class="options__button" title="Show chat">
+                    <i class="fa fa-comment"></i>
+                </div>
+                <div id="endMeet" class="end__button openModal" title="End Meeting">
+                    <i class="fa fa-phone" style="transform: rotate(135deg);"></i>
+                </div>
+                <div class="modal">
+                    <div class="modalContent">
+                        <span class="close">×</span>
+                        <p>Are you sure you want to Leave this meet</p>
+                        <button class="cancel" onclick="hideModal()">Cancel</button>
+                        <button class="del" onclick="leaveMeet()">Leave Meeting</button>
+                    </div>
+                </div>
+            </div>
+            <div class="options__right">
+                <div id="inviteButton" class="options__button" title="Invite">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main__right">
+        <div class="main__chat_window">
+            <div class="messages">
+
+            </div>
+        </div>
+        <div class="main__message_container">
+            <label for="chat_message" hidden> Type message here</label>
+            <input id="chat_message" type="text" autocomplete="off" placeholder="Type message here..." />
+            <div id="send" class="options__button" title="Send text message">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var modal = document.querySelector(".modal"); var btn = document.querySelector(".openModal"); var span = document.querySelector(".close"); btn.addEventListener("click", () => { modal.style.display
+    = "block"; }); span.addEventListener("click", () => { hideModal(); }); function hideModal() { modal.style.display = "none"; } window.onclick = function (event) { if (event.target == modal) {
+    hideModal(); } };
+</script>

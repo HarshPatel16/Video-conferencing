@@ -1,0 +1,55 @@
+<body>
+    <div class="container">
+        <main class="login-container">
+            <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+            <script src="/data/client_validation.js" defer></script>
+            <h1 class="heading-primary">Log in<span class="span-blue"></span></h1>
+            <p class="text-mute" style="color: #767676 ;">Enter your credentials to access your account.</p>
+            {{#if error}}
+                <p class="sg-error-message">{{error}}</p>
+            {{/if}}
+            <form class="login-form" action="/login" method="post" id="login-form">
+                <label class="inp">
+                    <input type="text" class="input-text" placeholder="&nbsp;" name="username" id="username" />
+                    <span class="label" style="color: #767676 ;">Username</span>
+                    <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+                </label>
+                <label class="inp">
+                    <input type="password" class="input-text" placeholder="&nbsp;" id="password" name="password" />
+                    <span class="label" style="color: #767676 ;">Password</span>
+                    <span class="input-icon input-icon-password" data-password><i class="fa-solid fa-eye"></i></span>
+                </label>
+                <button type="submit" class="btn btn-login" style="background-color: #007aca ;">Login</button>
+            </form>
+            <p class="text-mute" style="color: #767676 ;">Not a member? <a href="/signup">Sign up</a></p>
+        </main>
+        <div class="welcome-container">
+            <h1 class="heading-secondary">Welcome to <span class="lg">Video Meeting App!</span></h1>
+        </div>
+    </div>
+    
+    
+<script>
+  function checkForm(form){
+ 
+    if(this.username.value == "" || this.username.value.trim()== "") {
+      alert("Please Enter Valid UserName");
+      this.username_elem.focus();
+      return false;
+    }
+    if(this.password.value == "" || !this.valid_password.checked) {
+      alert("Please Enter Password");
+      this.password_elem.focus();
+      return false;
+    }
+    alert("Success!  The form has been completed, validated and is ready to be submitted...");
+    return false;
+  }
+</script>
+    
+    <script>
+        const eyeClick = document.querySelector("[data-password]"); const password_elem = document.getElementById("password"); eyeClick.onclick = () => { const icon = eyeClick.children[0];
+        icon.classList.toggle("fa-eye-slash"); if (password_elem.type === "password") { password_elem.type = "text"; } else if (password_elem.type === "text") { password_elem.type = "password"; } };
+    </script>
+</body>

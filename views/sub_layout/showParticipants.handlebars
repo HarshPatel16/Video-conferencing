@@ -1,0 +1,41 @@
+{{#if usersList.length}}
+
+<h1>Participants</h1>
+
+
+
+
+<ul>
+
+    {{#each usersList}}
+
+    <p>{{this.username}}</p>
+
+    {{#if this.isPublic}}
+
+    <p>{{this.firstName}}</p>
+
+    {{/if}}
+
+    {{/each}}
+
+</ul>
+
+{{else}}
+<p class="usersList-not-found">No participant found</p>
+
+{{/if}}
+
+<div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>

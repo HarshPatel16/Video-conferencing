@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/public/css/editProfile.css" />
+<h1>Edit Profile</h1>
+
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
+
+
+<form action="/editprofile" method="POST" class="editprofile-form" id="editprofile-form" enctype="multipart/form-data">
+    <div class="form-group">
+            <label for="image"></label>
+          <input type="file" name="profilePic" id="image" />
+    </div>
+    <div class="form-group">
+        <label for="firstName">FirstName</label>
+        <input type="firstName" class="form-control" id="firstName" name="firstName" placeholder="firstName"
+            value={{firstName}} />
+    </div>
+    <div class="form-group">
+        <label for="lastName">LastName</label>
+        <input type="lastName" class="form-control" id="lastName" name="lastName" placeholder="lastName"
+            value={{lastName}} />
+    </div>
+
+    <div class="form-group">
+        <label for="dob">LastName</label>
+        <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" value={{dob}} />
+    </div>
+
+    <div class="form-group">
+        <label for="ispublic_dropdown">Make information public?</label>
+        <select name="ispublic_dropdown" id="ispublic_dropdown">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+    </div>
+
+    <button id="submit" type="submit">Submit</button>
+
+    {{#if hasErrors}}
+    <p class="error">{{error}}</p>
+    {{/if}}
+</form>
+<script src="/public/js/editprofile.js"></script>
