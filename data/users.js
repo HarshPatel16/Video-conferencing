@@ -13,6 +13,11 @@ module.exports = {
             phonenumber = phonenumber.trim();
             email = email.trim();
 
+            const todaydate = new Date().getFullYear();
+            const year= new Date(dob).getFullYear();
+            if ((todaydate - year)<5) throw [400, `Please check Date of Birth`]
+            if ((todaydate - year)<18 && userType == "Tutor") throw [400, `Not Valid Age for Tutor`]
+
             const usercol = await userCollection();
             const chckForUser = await usercol.findOne({ username: username });
             const checkphone = await usercol.findOne({ phonenumber: phonenumber });
@@ -116,7 +121,6 @@ module.exports = {
             } else {
                 return false;
             }
-            return updatedInfo;
         } catch (e) {
             console.log("err:", e);
             throw e;
@@ -200,4 +204,4 @@ const checkCreateUser = function checkCreateUser(user, pass) {
     if (!pass.replace(/\s/g, "").length) throw [400, `Please don't pass white spaces in password`];
     if (/\s/.test(pass)) throw [400, `Please input only charaters in an Password`];
     if (pass.length < 6) throw [400, `Please enter a valid password(atleast 4 characters long)`];
-};
+    };

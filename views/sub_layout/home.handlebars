@@ -83,15 +83,28 @@
     <link rel="stylesheet" href="/public/css/home.css" />
     <body>
 
-        <!-- partial:index.partial.html -->
+        <div id="circularMenu1" class="circular-menu">
+
+            <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">Menu
+                {{! <i class="fa fa-bars"></i> }}
+            </a>
+
+            <menu class="items-wrapper">
+                <a href="/home" class="menu-item fa fa-home"></a>
+                <a href="/profile" class="menu-item fa fa-user"></a>
+                <a href="/logout" class="menu-item fa fa-sign-out"></a>
+            </menu>
+
+        </div>
 
         <!-- <a id="Meeting" href="/meeting"> -->
         <div class="split-pane col-xs-12 col-sm-6 frontend-side" >
             <div>
                 <div class="text-content">
-                    <div class="bold" style="background-color: #0075e2;">You want</div>
+                    <div class="bold">You want</div>
                     <div class="big">Join a Meet?</div>
                 </div>
+                 <button id="myBtn" style="cursor: pointer">Join Meeting</button>
             </div>
         </div>
         <!-- </a> -->
@@ -100,7 +113,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Join Meet</h2>
+                    <h1>Join Meet</h1>
                 </div>
                 <div class="modal-body">
                     <form action="/join" method="post">
